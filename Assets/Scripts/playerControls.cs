@@ -17,19 +17,23 @@ public class playerControls : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-		KeyboardControls ();		
+		
 	}
 
 
 
-	void KeyboardControls()
+
+
+	public void pickUpCandle()
 	{
 		if (Input.GetKey(KeyCode.E)) 
 		{
-			//Pick up the gameobject
-			candleObject.SetActive(false);
-			//GameObject get's attached to player's transform
-			//The GameObject becomes 'Visible'
+			if (tag == "Candle") {
+
+				//Pick up the gameobject
+				candleObject.SetActive(true);
+			}
+
 		}
 
 	}

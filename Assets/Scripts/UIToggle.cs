@@ -1,23 +1,32 @@
-﻿using System.Collections;
+﻿	using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class UIToggle : MonoBehaviour {
 
 
+	//Public Declarations
+	public GameObject deskCandle;
+
+	playerControls playerControllerScript;
 
 
-	private bool pickCandle;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
+	//Private Declarations
+	private bool pickCandleOn; //GUI message pops up
+	//private bool deskCandleOff;
+
+
+
+
 	// Update is called once per frame
-	void Update () {
-		
+	void Update () 
+	{
+		//candleInteraction ();
+
 	}
+
+
 
 
 	void OnTriggerEnter(Collider other)
@@ -25,14 +34,11 @@ public class UIToggle : MonoBehaviour {
 		//Once player enters trigger, UI text pops up
 		if (other.gameObject.tag == "Player") 
 		{
-			
-			//Display Pop up message that says "Press 'E' to pick up"
-			pickCandle = true;
+			//candleInteraction (); // Call pick up function
+			pickCandleOn = true;
+			playerControllerScript.pickUpCandle ();
 		}
-
-
-
-
+			
 
 	}
 
@@ -40,25 +46,60 @@ public class UIToggle : MonoBehaviour {
 	void OnTriggerExit(Collider other)
 	{
 
-		pickCandle = false;
+		pickCandleOn = false;
 	}
+
+
+	void OnTriggerStay(Collider other)
+	{
+		if (other.tag == "Player") 
+		{
+			candleInteraction ();
+
+
+
+			playerControllerScript.pickUpCandle ();
+
+		}
+	}
+
 
 
 	//GUI FUNCTION
 	void OnGUI()
 	{
-		if (pickCandle == true) 
+		if (pickCandleOn == true) 
 		{
 			if (GUI.Button ( new Rect (350, 100, 500, 40), "Press 'E' to pick up Candle")) 
 			{
 				Debug.Log("Message popped up!");
-				pickCandle = false;
+				pickCandleOn = false;
+
+
+
 			}
 
 		}
 
 
 	}
+
+
+
+
+	void candleInteraction()
+	{
+		
+		if(Input.GetKey(KeyCode.E))
+		{
+			//Turns off candle off desk
+			deskCandle.SetActive (false);
+
+		}
+	
+	
+	}
+
 
 
 }
