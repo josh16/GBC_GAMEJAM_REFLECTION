@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class Demon : MonoBehaviour {
 
-	public GameObject demonPrefab;
+
 	public Transform Spawner;
-	Rigidbody rb;
+	public Rigidbody DemonCreature;
 
 
 	// Use this for initialization
 	void Start () 
 	{
-		rb = GetComponent<Rigidbody> ();
+		DemonCreature = GetComponent<Rigidbody> ();
 	}
 	
 
@@ -34,7 +34,7 @@ public class Demon : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-		SpawnDemon ();
+		
 	}
 
 
@@ -42,7 +42,7 @@ public class Demon : MonoBehaviour {
 	public void SpawnDemon()
 	{
 
-		//rb = Instantiate (demonPrefab, Spawner.transform.position, Spawner.rotation) as Rigidbody;
+		Instantiate (DemonCreature, Spawner.transform.position, Spawner.rotation);
 	}
 
 
