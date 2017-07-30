@@ -4,8 +4,12 @@ using UnityEngine;
 
 public class SceneChange : MonoBehaviour {
 
+
+	public string levelName;
+
 	// Use this for initialization
-	void Start () {
+	void Start () 
+	{
 		
 	}
 
@@ -18,7 +22,7 @@ public class SceneChange : MonoBehaviour {
 
 		if (other.tag == "Player") 
 		{
-			Application.LoadLevel ("Level_2");
+			Application.LoadLevel (levelName);
 		}
 
 

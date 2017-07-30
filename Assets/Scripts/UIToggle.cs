@@ -36,7 +36,7 @@ public class UIToggle : MonoBehaviour {
 		{
 			//candleInteraction (); // Call pick up function
 			pickCandleOn = true;
-			playerControllerScript.pickUpCandle ();
+			//playerControllerScript.pickUpCandle ();
 		}
 			
 
@@ -58,7 +58,7 @@ public class UIToggle : MonoBehaviour {
 
 
 
-			playerControllerScript.pickUpCandle ();
+			//playerControllerScript.pickUpCandle ();
 
 		}
 	}

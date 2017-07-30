@@ -25,9 +25,7 @@ public class FollowPlayer : MonoBehaviour {
 
 		anim = GetComponent<Animator> ();
 
-		agent = GetComponent<NavMeshAgent>();
-		agent.destination = player.position;
-		anim.SetBool ("isIdle", true);
+
 	}
 
 
@@ -36,7 +34,9 @@ public class FollowPlayer : MonoBehaviour {
 
 	void Update()
 	{
-
+		agent = GetComponent<NavMeshAgent>();
+		agent.destination = player.position;
+		anim.SetBool ("isCrawling", true);
 
 	}
 
