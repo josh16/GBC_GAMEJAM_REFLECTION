@@ -24,7 +24,7 @@ public class MirrorMessage : MonoBehaviour {
 		
 	}
 
-
+	/*
 	//Trigger Enter Code
 	void OnTriggerEnter(Collider other)
 	{
@@ -36,10 +36,10 @@ public class MirrorMessage : MonoBehaviour {
 			lookInMirror = true;
 		}
 
-
+		
 	}
 
-
+	*/
 
 	//Trigger Exit Code
 
@@ -53,13 +53,34 @@ public class MirrorMessage : MonoBehaviour {
 
 	void OnTriggerStay(Collider other)
 	{
+
+
+		//Red Arrow Appears
+		interactMirror ();
+		/*
 		if (other.tag == "Player") 
 		{
-			
 			//Red Arrow Appears
-			interactMirror ();
+			interactMirror ();	
+
+		}
+
+		*/
+	}
+
+
+	//Interaction Code 
+	void interactMirror()
+	{
+
+		if (Input.GetKey (KeyCode.E)) 
+		{
+			//Interact with the mirror and than a message behind the player appears
+			theObject.SetActive(true);
 		}
 	}
+
+
 
 
 
@@ -83,16 +104,6 @@ public class MirrorMessage : MonoBehaviour {
 	}
 
 
-	//Interaction Code 
-	void interactMirror()
-	{
-
-		if (Input.GetKey (KeyCode.E)) 
-		{
-			//Interact with the mirror and than a message behind the player appears
-			theObject.SetActive(true);
-		}
-	}
 
 
 

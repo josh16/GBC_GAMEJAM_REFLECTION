@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UIToggle : MonoBehaviour {
+public class Candle : MonoBehaviour {
 
 
 	//Public Declarations
@@ -14,35 +14,30 @@ public class UIToggle : MonoBehaviour {
 
 	//Private Declarations
 	private bool pickCandleOn; //GUI message pops up
-	//private bool deskCandleOff;
 
 
 
 
-	// Update is called once per frame
-	void Update () 
-	{
-		//candleInteraction ();
-
-	}
 
 
-
-
+	//****TRIGGER ENTER EVENTS****
 	void OnTriggerEnter(Collider other)
 	{
 		//Once player enters trigger, UI text pops up
 		if (other.gameObject.tag == "Player") 
 		{
-			//candleInteraction (); // Call pick up function
+			//Calls GUI TEXT BOX function
 			pickCandleOn = true;
-			//playerControllerScript.pickUpCandle ();
+
 		}
 			
 
 	}
 
 
+
+
+	//*****TRIGGER EXIT EVENTS****
 	void OnTriggerExit(Collider other)
 	{
 
@@ -58,10 +53,32 @@ public class UIToggle : MonoBehaviour {
 
 
 
-			//playerControllerScript.pickUpCandle ();
-
 		}
 	}
+
+
+
+	//FUNCTIONS/METHODS
+
+	public void candleInteraction()
+	{
+
+		if(Input.GetKey(KeyCode.E))
+		{
+			//Turns off candle off desk
+			deskCandle.SetActive (false);
+
+
+		}
+
+
+	}
+
+
+
+
+
+
 
 
 
@@ -86,19 +103,6 @@ public class UIToggle : MonoBehaviour {
 
 
 
-
-	void candleInteraction()
-	{
-		
-		if(Input.GetKey(KeyCode.E))
-		{
-			//Turns off candle off desk
-			deskCandle.SetActive (false);
-
-		}
-	
-	
-	}
 
 
 

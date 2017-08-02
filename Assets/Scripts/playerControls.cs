@@ -5,38 +5,64 @@ using UnityEngine;
 public class playerControls : MonoBehaviour {
 
 
+
+    //Reference to Candle Script
+	MirrorMessage mirrorScript;
+
+	//Reference to Mirror Script
+	Candle candleScript;  
+
+
+
+
 	public Transform handTransform;
 	public GameObject candleObject;
 
-	// Use this for initialization
-	void Start () 
+
+
+
+
+	public void objectInteraction()
 	{
-		
-	}
+
+
 	
-	// Update is called once per frame
-	void Update () 
-	{
-		
-	}
-
-
-
-
-
-	public void pickUpCandle()
-	{
+		//Interaction with Candle
 		if (Input.GetKey(KeyCode.E)) 
 		{
-			if (tag == "Candle") {
+			if (tag == "Candle") 
+			{
 
-				//Pick up the gameobject
+				//calls candle script to turn off candle
+				candleScript.candleInteraction ();
+
+
+				//Enable the candle on the player
 				candleObject.SetActive(true);
+
 			}
 
 		}
 
+		//Interaction with Mirrors
+		if (Input.GetKey (KeyCode.E)) 
+		{
+			if (tag == "Mirror") 
+			{
+				/*Interact with the 'Mirror script' and access the
+				 function in that class 
+				*/
+
+			}
+		}
+
+	
 	}
+
+
+
+
+
 
 
 
