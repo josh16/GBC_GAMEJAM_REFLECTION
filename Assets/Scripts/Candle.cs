@@ -59,7 +59,7 @@ public class Candle : MonoBehaviour {
 
 
 	//FUNCTIONS/METHODS
-
+    
 	public void candleInteraction()
 	{
 

@@ -8,39 +8,38 @@ public class playerControls : MonoBehaviour {
 
     //Reference to Candle Script
 	MirrorMessage mirrorScript;
-
-	//Reference to Mirror Script
-	Candle candleScript;  
-
+    //Reference to Mirror Script
+	Candle candleScript;
 
 
+    //Bools
+
+    bool activateCandle;
 
 	public Transform handTransform;
 	public GameObject candleObject;
 
+    void Start()
+    {
+        candleObject.SetActive(false);
 
+    }
 
 
 
 	public void objectInteraction()
 	{
-
-
-	
-		//Interaction with Candle
+        //Interaction with Candle
 		if (Input.GetKey(KeyCode.E)) 
 		{
 			if (tag == "Candle") 
 			{
-
-				//calls candle script to turn off candle
+                //calls candle interaction method from candle script
 				candleScript.candleInteraction ();
-
-
-				//Enable the candle on the player
-				candleObject.SetActive(true);
-
-			}
+                
+                //Enable the candle on the player
+				
+            }
 
 		}
 
@@ -49,9 +48,8 @@ public class playerControls : MonoBehaviour {
 		{
 			if (tag == "Mirror") 
 			{
-				/*Interact with the 'Mirror script' and access the
-				 function in that class 
-				*/
+                //Interaction with Mirror script
+                mirrorScript.mirrorInteraction();
 
 			}
 		}
@@ -60,7 +58,16 @@ public class playerControls : MonoBehaviour {
 	}
 
 
+    void OnTriggerStay(Collider other)
+    {
+        if(activateCandle == true)
+        {
+            candleObject.SetActive(true);
+        }
 
+    }
+
+    //boolean statement for activating the candle
 
 
 

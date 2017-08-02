@@ -53,24 +53,16 @@ public class MirrorMessage : MonoBehaviour {
 
 	void OnTriggerStay(Collider other)
 	{
-
-
-		//Red Arrow Appears
-		interactMirror ();
-		/*
-		if (other.tag == "Player") 
+        if (other.tag == "Player") 
 		{
 			//Red Arrow Appears
-			interactMirror ();	
+			mirrorInteraction ();	
+        }
+    }
 
-		}
-
-		*/
-	}
-
-
-	//Interaction Code 
-	void interactMirror()
+    //WORK IN PROGRESS*****************************************
+    //Interaction Code 
+    public void mirrorInteraction()
 	{
 
 		if (Input.GetKey (KeyCode.E)) 
